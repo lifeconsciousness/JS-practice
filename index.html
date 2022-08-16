@@ -9,9 +9,12 @@
     <link rel="stylesheet" href="./style/style.css">
 </head>
 <body style="font-size: 30px;">
+    <label for="" id="myLabel"></label>
+
     <label id="num">0</label>
     <button id="increase" type="button">Increase number</button>
-    <button id="decrease" type="button">Decrease number</button> <br>
+    <button id="decrease" type="button">Decrease number</button> 
+    <button class="btn">Eventlistener test</button><br>
 
 
     <!-- /////////////////////////////////////////////////////// -->
@@ -24,14 +27,26 @@
 
     <!-- /////////////////////////////////////////////////////// -->
 
-    
+
     <br><label for="grade">Enter your grade:</label>
     <input type="text" name = "grade111" id="grade">
     <button id="submitBtn1">Submit</button> 
 
 
+    <!-- /////////////////////////////////////////////////////// -->
 
+    <br><br><label>Enter a temperature</label><br>
+    <input id="temperatureInput" type="text"><br>
+    <label>convert to:</label><br>
+    <input type="radio" name="unit" id="celsiumChoice">
+    <label>Celsium</label><br>
+    <input type="radio" name="unit" id="farenheitChoice">
+    <label>Farenheit</label><br>
+    <label id="result"></label>
     
+    <!-- /////////////////////////////////////////////////////// -->
+
+
 
     <script src="/script.js">
     </script>
