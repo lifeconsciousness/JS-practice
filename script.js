@@ -222,9 +222,12 @@ stringSum(displayStr1,"strgb", "=--dfs--", "2356");
 /////////////////////////////////
 //array.forEach() = executes a provided callback function once for each
                                                  //element of the array
+                                           //capitalize array of stings
 let students = ["john", "katrin", "finger"];
+
 students.forEach(capitalize);
 students.forEach(print);
+
 
 function capitalize(element, index, array){
     array[index] = element[0].toUpperCase() + element.substring(1);
@@ -233,14 +236,141 @@ function capitalize(element, index, array){
 function print(element){
     console.log(element);
 }
+function displayArr(array){
+    for (let element of array){
+        console.log(element);
+    }
+}
 
-                                                
-                                        
+//////////////////////////////////
+//array.map() method executes callback function 
+//     for each element and creates a new array
+
+let numbersArr = [1,2,3,4,5]
+let squaresArr = numbersArr.map(squareFunc)
+
+function squareFunc(element){
+    return Math.pow(element,2)
+}
+
+console.log(...squaresArr)
 
 
+//////////////////////////////////
+//array.filter() = creates new array of elements
+//      that passed test provided by a functiion
+
+let ages = [16,17,19,18,40]
+let adults = ages.filter(checkAge)
+function checkAge(element){
+    if (element >= 18) return element
+}
 
 
+//////////////////////////////////
+//array.reduce() = reduces an array to a single value
 
+let prices = [5,10,20,30,35]
+let total = prices.reduce(pricesSum)
+
+console.log(`The total is ${total}`)
+
+function pricesSum(total, element){
+    return total + element
+}
+
+
+//////////////////////////////////
+//sort an array of numbers
+
+let grades = [100,90,80,40,76,70]
+
+grades = grades.sort(descendingSort)
+grades = grades.sort((x,y) => x-y) //ascending sort with arrow func
+console.log(...grades)
+
+function descendingSort(x, y){
+    return y - x //x - y ascending order //0.5 - Math.random() - rand order
+}
+
+//////////////////////////////////
+//arrow function =>
+
+const greeting = (userName) => console.log(`Hey ${userName}`)
+greeting("Himars")
+
+const percentFunc = (firstNum, secondNum) => (firstNum / secondNum)*100
+console.log(percentFunc(8,245))
+
+//////////////////////////////////
+//shuffle elements of array
+
+let months = ["February", "June", "July", "December", "August"]
+
+shuffle(months)
+console.log(...months)
+console.log(randMonth(months))
+
+function shuffle(array){
+    let currentIndex = 0;
+
+    while(currentIndex != array.length){
+        let randIndex = Math.floor(Math.random() * array.length)
+
+        let temp = array[currentIndex]
+        array[currentIndex] = array[randIndex]
+        array[randIndex] = temp 
+
+        currentIndex++
+    }
+    return array;
+}
+
+function randMonth(array){
+    return array[Math.floor(Math.random() * array.length)]
+}
+
+
+/////////////////////////////////
+//Map = object that holds key-value pairs of any data type
+
+const clothesStore = new Map([
+    ["pants", 40],
+    ["hoodie", 50],
+    ["t-shirt", 25]
+]);
+                 
+let shoppingCart = 0
+shoppingCart += clothesStore.get("hoodie")
+clothesStore.set("socks", 999)
+clothesStore.delete("t-shirt")
+
+if(clothesStore.has("t-shirt")){
+    console.log("there are t-shirts available ")
+} else console.log("there are no t-shirts")
+
+clothesStore.size //is equal 3
+
+clothesStore.forEach((value, key) => console.log(`${key} cost ${value}$`))
+
+///////////////////////////////////
+//object
+
+const car = {
+    name: "Honda accord",
+    color: "Dreary light-grey",
+    year: 2005,
+
+    drive: function(){
+        console.log("You drive honda accord 2005")
+    },
+    break: function(){
+        console.log("You stepped on the brakes")
+    }
+}
+
+car.name //access object property
+car.drive() //invoke object method  
 
 
 
