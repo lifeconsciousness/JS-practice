@@ -290,7 +290,8 @@ grades = grades.sort((x,y) => x-y) //ascending sort with arrow func
 console.log(...grades)
 
 function descendingSort(x, y){
-    return y - x //x - y ascending order //0.5 - Math.random() - rand order
+    return y - x //x - y ascending order 
+    //            0.5 - Math.random() - rand order
 }
 
 //////////////////////////////////
@@ -341,6 +342,7 @@ const clothesStore = new Map([
 ]);
                  
 let shoppingCart = 0
+
 shoppingCart += clothesStore.get("hoodie")
 clothesStore.set("socks", 999)
 clothesStore.delete("t-shirt")
@@ -354,7 +356,7 @@ clothesStore.size //is equal 3
 clothesStore.forEach((value, key) => console.log(`${key} cost ${value}$`))
 
 ///////////////////////////////////
-//object
+//object, this statement
 
 const car = {
     name: "Honda accord",
@@ -362,7 +364,7 @@ const car = {
     year: 2005,
 
     drive: function(){
-        console.log("You drive honda accord 2005")
+        console.log(`You drive ${this.name} ${this.year}`)
     },
     break: function(){
         console.log("You stepped on the brakes")
@@ -373,6 +375,50 @@ car.name //access object property
 car.drive() //invoke object method  
 
 
+///////////////////////////////////
+//class = a blueprint for creating objects
 
+class Player{
+    score = 0;
+
+    pause(){
+        console.log("pause game")
+    }
+    exit(){
+        console.log("exit game")
+    }
+} 
+
+const player_1 = new Player();
+const player_2 = new Player();
+
+player_1.score+=10;
+player_2.score+=99;
+
+player_1.pause();
+player_2.exit();
+
+//----constructor = a special method of a class,
+//------accepts arguments and assigns properties
+
+class Student{
+    constructor(name,age,grade){ //parameters for the future objects
+        this.nameofStudent = name
+        this.age = age
+        this.grade = grade
+    }
+    
+    study(){
+        console.log(`${this.name} is studying`)
+    }
+    changeName(newName){
+        this.nameofStudent = newName
+    }
+}
+
+const student1 = new Student("Ron", 18, 5)
+student1.changeName("Bob")
+console.log(student1.nameofStudent)
+const student2 = new Student("MaleName334", 20, 4.5)
 
 
